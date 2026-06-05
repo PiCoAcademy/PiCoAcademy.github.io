@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google" value="notranslate">
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 100'%3E%3Cpath fill='%2300BB7A' stroke='none' d='M 68.678 32.685 C 63.506 33.739 50.345 35.274 48.894 30.625 C 47.361 24.709 54.859 23.666 51.678 12.056 C 50.635 8.252 46.034 4.96 39.611 5.38 C 34.569 5.528 27.996 7.59 27.485 16.193 C 26.706 29.305 39.611 28.609 31.897 33.457 C 24.207 36.287 17.42 33.272 11.525 32.33 C 10.23 36.716 5.19 51.86 12.139 51.085 C 18.152 50.423 17.342 49.857 21.813 51.052 C 27.058 52.457 27.333 57.43 27.003 59.399 C 26.54 62.14 22.992 65.044 19.746 65.136 C 15.842 65.195 14.702 63.98 11.089 63.004 C 3.153 62.459 9.33 81.083 10.574 87.266 C 17.226 90.1 24.949 91.41 30.054 90.721 C 36.502 89.017 29.023 83.782 30.895 80.092 C 32.112 77.682 35.523 75.973 38.61 75.849 C 44.489 75.44 47.688 77.25 49.154 80.018 C 50.55 84.917 46.072 86.78 47.34 89.017 C 49.858 93.036 62.005 89.936 68.808 88.146 C 69.831 78.642 76.755 60.597 66.834 63.734 C 56.082 67.133 53.997 61.736 53.687 61.261 C 50.581 54.869 54.704 51.489 59.308 50.363 C 63.692 49.484 66.15 52.113 69.096 51.738 C 74.282 51.285 70.064 33.505 68.678 32.685 Z'/%3E%3C/svg%3E">
+    <script>
+        (function(){
+            var themes={default:{'--theme-primary':'#4ECDC4','--theme-secondary':'#29958E','--theme-text':'#ffffff','--theme-subtext':'rgba(255,255,255,0.6)','--theme-transparent':'rgba(78,205,196,0.35)','--theme-light-transparent':'rgba(78,205,196,0.15)','--theme-modal-overlay':'rgba(78,205,196,0.9)','--theme-drop-highlight':'#7DDDD8','--theme-bg-primary':'hsla(176,56%,95%,1)','--theme-bg-secondary':'hsla(176,42%,95%,1)','--theme-bg-tertiary':'hsla(176,28%,90%,1)','--theme-ring1':'#E3FAFC','--theme-ring2':'#74C0FC','--theme-ring3':'#1098AD','--theme-ring4':'#0B7285'},dark:{'--theme-primary':'#0B2E3C','--theme-secondary':'#1098AD','--theme-text':'#ffffff','--theme-subtext':'#74C0FC','--theme-transparent':'rgba(11,46,60,0.35)','--theme-light-transparent':'rgba(11,46,60,0.15)','--theme-modal-overlay':'rgba(11,46,60,0.9)','--theme-drop-highlight':'#1098AD','--theme-bg-primary':'#0d2233','--theme-bg-secondary':'#0e2536','--theme-bg-tertiary':'#0f2a3a','--theme-ring1':'#E3FAFC','--theme-ring2':'#74C0FC','--theme-ring3':'#1098AD','--theme-ring4':'#0B7285'},pink:{'--theme-primary':'#FFB3BC','--theme-secondary':'#FF8896','--theme-text':'#5c2333','--theme-subtext':'rgba(92,35,51,0.6)','--theme-transparent':'rgba(255,179,188,0.35)','--theme-light-transparent':'rgba(255,179,188,0.15)','--theme-modal-overlay':'rgba(255,179,188,0.9)','--theme-drop-highlight':'#FFCDD2','--theme-bg-primary':'#fff0f2','--theme-bg-secondary':'#ffe4e8','--theme-bg-tertiary':'#ffd6db','--theme-ring1':'#ffffff','--theme-ring2':'#FFD6DB','--theme-ring3':'#FF8896','--theme-ring4':'#E05C6E'}};
+            var name=localStorage.getItem('picoblock-theme')||'default';
+            var t=themes[name]||themes.default;
+            var r=document.documentElement;
+            Object.keys(t).forEach(function(k){r.style.setProperty(k,t[k]);});
+            r.setAttribute('data-theme',name);
+        })();
+    </script>
+    <title>PiCoBlock GUI: Compatibility Testing</title>
+    
+    <style>
+        #pre-loading {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: var(--theme-primary, #4ECDC4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            z-index: -9999;
+        }
+        #pre-loading-title {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        #pre-loading-subtitle {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            color: var(--theme-subtext, rgba(255,255,255,0.6));
+        }
+        .pl-ring { fill: none; stroke-linecap: round; transform-origin: 100px 100px; }
+        .pl-r1 { stroke: var(--theme-ring1, #E3FAFC); stroke-width: 9; animation: pl-cw  2.0s linear infinite; }
+        .pl-r2 { stroke: var(--theme-ring2, #74C0FC); stroke-width: 9; animation: pl-ccw 1.7s linear infinite; }
+        .pl-r3 { stroke: var(--theme-ring3, #1098AD); stroke-width: 9; animation: pl-cw  1.5s linear infinite; }
+        .pl-r4 { stroke: var(--theme-ring4, #0B7285); stroke-width: 9; animation: pl-ccw 1.3s linear infinite; }
+        .pl-r5 { stroke: var(--theme-ring1, #E3FAFC); stroke-width: 9; animation: pl-cw  1.1s linear infinite; }
+        .pl-r6 { stroke: var(--theme-ring2, #74C0FC); stroke-width: 9; animation: pl-ccw 0.9s linear infinite; }
+        .pl-r7 { stroke: var(--theme-ring3, #1098AD); stroke-width: 9; animation: pl-cw  0.7s linear infinite; }
+        @keyframes pl-cw  { to { transform: rotate( 360deg); } }
+        @keyframes pl-ccw { to { transform: rotate(-360deg); } }
+    </style>
+  </head>
+  <body>
+    <div id="pre-loading">
+        <svg width="180" height="180" viewBox="0 0 200 200" style="overflow:visible">
+            <circle class="pl-ring pl-r1" cx="100" cy="100" r="85" stroke-dasharray="401 133" stroke-dashoffset="0"/>
+            <circle class="pl-ring pl-r2" cx="100" cy="100" r="72" stroke-dasharray="339 113" stroke-dashoffset="-30"/>
+            <circle class="pl-ring pl-r3" cx="100" cy="100" r="59" stroke-dasharray="278 93"  stroke-dashoffset="-60"/>
+            <circle class="pl-ring pl-r4" cx="100" cy="100" r="46" stroke-dasharray="217 72"  stroke-dashoffset="-90"/>
+            <circle class="pl-ring pl-r5" cx="100" cy="100" r="33" stroke-dasharray="155 52"  stroke-dashoffset="-120"/>
+            <circle class="pl-ring pl-r6" cx="100" cy="100" r="21" stroke-dasharray="99 33"   stroke-dashoffset="-150"/>
+            <circle class="pl-ring pl-r7" cx="100" cy="100" r="10" stroke-dasharray="47 16"   stroke-dashoffset="-180"/>
+        </svg>
+        <div id="pre-loading-title">PiCoBlock</div>
+        <div id="pre-loading-subtitle">Loading…</div>
+    </div>
+  <script type="text/javascript" src="lib.min.js"></script><script type="text/javascript" src="chunks/compatibilitytesting.js"></script></body>
+</html>
